@@ -11,6 +11,9 @@ var ip     = require('ip')
 
 exports = module.exports = function (sbot, config) {
   require('http').createServer(exports.BlobStack(sbot)).listen(7777)
+  .on('error', function (err) {
+    console.error(err.stack)
+  })
 }
 
 function respond (res, status, message) {
